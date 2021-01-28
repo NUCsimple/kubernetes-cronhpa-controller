@@ -2,7 +2,6 @@ package cron
 
 import (
 	"log"
-	"fmt"
 	"runtime"
 	"sort"
 	"time"
@@ -222,8 +221,8 @@ func (c *Cron) run() {
 			timer = time.NewTimer(100000 * time.Hour)
 		} else {
 			timer = time.NewTimer(c.sortedEntries[0].Next.Sub(now))
-			fmt.Printf("The sorted entrie is %v",c.sortedEntries[0])
-			fmt.Printf("The next time is after %s",c.sortedEntries[0].Next.Sub(now).String())
+			log.Printf("The sorted entrie is %v",c.sortedEntries[0])
+			log.Printf("The next time is after %s",c.sortedEntries[0].Next.Sub(now).String())
 		}
 
 		for {
